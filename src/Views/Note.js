@@ -5,10 +5,11 @@ import { useAxiosGet } from "../Hooks/NoteHttpRequest"
 import { Link } from "react-router-dom"
 import { faArrowAltCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { apiUrl } from "../Constants"
 
 function Note(){
     const { id } = useParams()
-    const url = `http://localhost:5000/note/${id}`
+    const url = `${apiUrl}/note/${id}`
 
     let note = useAxiosGet(url)
 

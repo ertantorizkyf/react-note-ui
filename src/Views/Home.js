@@ -2,9 +2,10 @@ import React from "react"
 import Loader from "../Components/Loader"
 import { useAxiosGet } from "../Hooks/NoteHttpRequest"
 import { Link } from "react-router-dom"
+import { apiUrl } from "../Constants"
 
 function Home(){
-    const url = `http://localhost:5000/note`
+    const url = `${apiUrl}/note`
     let notes = useAxiosGet(url)
     let content = null
 
@@ -25,7 +26,8 @@ function Home(){
                 </div>
             </div>
         )   
-    } else{
+    }
+    if(notes.data && notes.data.length === 0){
         content = 
         <p>No notes yet</p>
     }
